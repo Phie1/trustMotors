@@ -1,0 +1,42 @@
+// this is the id of the form
+$("#searchLicenseForm").submit(function(e) {
+
+    var licensePlate = $("#searchLicenseForm :input[name='licensePlate']");
+	
+    console.log(licensePlate.val());
+	
+    var url = "http://148.100.99.132:3000/api/org.trustmotors.SetCarSensor";
+
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    $.ajax({
+           type: "GET",
+           url: url,
+           dataType: "json",
+           success: function(data)
+           {
+			   
+              console.log(data);
+			  for(var i in data){
+				var tr = $('<tr></tr>');
+				var td1 = $('<td></td>');
+				var td2 = $('<td></td>');
+				var td3 = $('<td></td>');
+				tr.append(td1);
+				tr.append(td2);
+				tr.append(td3);
+				td1.html(data[i].sensorSpeed);
+				td2.html(data[i].sensorKm);
+				td3.html(data[i].car);
+				$("#test").append(tr);
+			  }
+           },
+           error : function(xhr, errorText){
+              console.log(url);
+              console.log('Error '+ xhr.responseText);
+           },
+           complete : function(data) {
+           }
+         });
+});
