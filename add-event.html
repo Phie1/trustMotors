@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Trust Motors - Add Vehicle</title>
+  <title>Trust Motors - Add Event</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -36,13 +36,13 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add vehicle">
           <a class="nav-link" href="add-vehicle.html">
             <i class="fa fa-car" aria-hidden="true"></i>
-            <span class="nav-link-text" style="font-weight: bold;"> Add vehicle</span>
+            <span class="nav-link-text"> Add vehicle</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add event">
           <a class="nav-link" href="add-event.html">
             <i class="fa fa-calendar" aria-hidden="true"></i>
-            <span class="nav-link-text"> Add event</span>
+            <span class="nav-link-text" style="font-weight: bold;"> Add event</span>
           </a>
         </li>
       </ul>
@@ -64,31 +64,65 @@
       </ul>
     </div>
   </nav>
-	<br/>
   <div class="content-wrapper">
-      <div class="card card-register mx-auto mt-5">
-      <div class="card-header" style="font-weight: bold;">Add a Vehicle</div>
-      <div class="card-body">
-        <form id="addVehicleForm">
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-12">
-                <label for="inputLicensePlate">License Plate</label>
-                <input class="form-control" id="inputLicensePlate" name="carId" type="text" placeholder="Enter license plate (Example : 12-ABC-34)">
-              </div>
-              <div class="col-md-6">
-                <label for="inputBrand">Brand</label>
-                <input class="form-control" id="inputBrand" name="brand" type="text" placeholder="Enter brand">
-              </div>
-              <div class="col-md-6">
-                <label for="inputModel">Model</label>
-                <input class="form-control" id="inputModel" name="model" type="text" placeholder="Enter model">
-              </div>
-            </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <center><h1>Add an event for the vehicle</h1></center>
+		  <br/>
+		  <br/>
+        </div>
+		
+      </div>
+	   
+    </div>
+<center> 
+    <div class="container">
+       <form id="addForm">
+          <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">User :</label>
+          <div class="col-sm-10">
+         <select class="form-control" id="utilisateur" size="1">
+             <option></option>
+         </select>
           </div>
-          <button class="btn btn-primary btn-block" type="submit" id="btnAddVehicle">Add vehicle</button>
+    </div>
+	
+          <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">License :</label>
+          <div class="col-sm-10">
+        <select class="form-control"id="car" size="1">
+             <option></option>
+        </select>
+          </div>
+    </div>
+	
+	     <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Event :</label>
+         <div class="col-sm-10">
+        <select class="form-control" id="EventOption" >
+             <option>REPAIR</option>
+             <option>PART_CHANGE</option>
+             <option>POLICE_CHECK</option>
+	         <option>TECHNICAL_CHECK</option>
+        </select>
+         </div>
+    </div>
 
-          <center><div class="loader loader--style1" title="0" id="addVehicleLoader" style="display: none;">
+        <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Comment :</label>
+        <div class="col-sm-10">
+      <textarea class="form-control" id="commentaire" rows="3"></textarea>
+
+       </div>
+    </div>
+	
+	 
+	
+      <button type="submit" class="btn btn-primary btn-lg btn-block" id="btnAddEvent"> Add event </button>
+
+
+          <center><div class="loader loader--style1" title="0" id="addEventLoader" style="display: none;">
             <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              width="100px" height="100px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
             <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
@@ -105,15 +139,13 @@
                 repeatCount="indefinite"/>
               </path>
             </svg>
-            <h1> Adding the vehicle... </h1>
+            <h1> Adding the event... </h1>
           </div></center>
-
-
-        </form>
-      </div>
-    </div>
+   </form>
   </div>
-    
+</center>
+	
+    <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
@@ -150,17 +182,11 @@
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+	  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
-    <!-- Custom scripts for this page-->
-    <script src="js/sb-admin-datatables.js"></script>
-    <script src="js/sb-admin-charts.js"></script>
     <script src="js/trust-motors.js"></script>
-    <script src="js/add-vehicle.js"></script>
+    <script src="js/add-event.js"></script>
   </div>
 </body>
 

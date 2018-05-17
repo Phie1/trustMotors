@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Trust Motors</title>
+  <title>Trust Motors - Dashboard</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -30,90 +30,19 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="index.html">
             <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+            <span class="nav-link-text" style="font-weight: bold;"> Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add vehicle">
           <a class="nav-link" href="add-vehicle.html">
             <i class="fa fa-car" aria-hidden="true"></i>
             <span class="nav-link-text"> Add vehicle</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Tables</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Components</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="navbar.html">Navbar</a>
-            </li>
-            <li>
-              <a href="cards.html">Cards</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Example Pages</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="login.html">Login Page</a>
-            </li>
-            <li>
-              <a href="register.html">Registration Page</a>
-            </li>
-            <li>
-              <a href="forgot-password.html">Forgot Password Page</a>
-            </li>
-            <li>
-              <a href="blank.html">Blank Page</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Menu Levels</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add event">
+          <a class="nav-link" href="add-event.html">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span class="nav-link-text"> Add event</span>
           </a>
         </li>
       </ul>
@@ -141,7 +70,7 @@
       <center><h1 style="padding-bottom: 30px;" id="titleLicensePlate"> Enter the license plate of the vehicle </h1>
       <form class="form-inline my-4 my-lg-0 mr-lg-2 col-8" id="searchLicenseForm" style="float: right; !important; padding-left: 100px; ">
             <div class="input-group">
-              <input class="form-control" type="text" placeholder="License Plate..." name="licensePlate" id="inputLicensePlate">
+              <input class="form-control" type="text" placeholder="License Plate... (Ex : 12-ABC-34)" name="licensePlate" id="inputLicensePlate" style="width: 300px;">
 
               <span class="input-group-btn">
                 <button class="btn btn-primary" type="submit">
@@ -179,15 +108,26 @@
             <h1 style="padding-bottom: 50px;"> Searching the vehicle... </h1>
           </div></center>
 
-          <span>Welcome to the dashboard of the vehicle registered as : <span id="vehicleLicensePlate" class="vehicleField"></span></span>
+          <span style="font-size: 20px;">Welcome to the dashboard of the vehicle registered as : <span id="vehicleLicensePlate" class="vehicleField"></span></span>
           <br/>
+          <br/>
+        </div>
+      </div>
+
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-car"></i> Vehicle informations</div>
+        <div class="card-body">
           <ul>
             <li>Brand : <span id="vehicleBrand" class="vehicleField"></span></li>
             <li>Model : <span id="vehicleModel" class="vehicleField"></span></li>
             <li>Total kilometers traveled : <span id="vehicleKm" class="vehicleField"></span></li>
           </ul>
+          <button type="button" id="goToParts" class="btn btn-success"><i class="fa fa-wrench" aria-hidden="true"></i> Update vehicle parts</button>
         </div>
       </div>
+
+
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Important events</div>
@@ -217,8 +157,8 @@
       <!-- Area Chart Example-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-area-chart"></i> Km traveled per month</div>
-        <div class="card-body">
+          <i class="fa fa-area-chart"></i> Km traveled during last week</div>
+        <div class="card-body" id="chartContainer">
           <canvas id="myAreaChart" width="100%" height="30"></canvas>
         </div>
       </div>
@@ -271,7 +211,7 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.js"></script>
-    <script src="js/sb-admin-charts.js"></script>
+    <!--<script src="js/sb-admin-charts.js"></script>-->
     <script src="js/trust-motors.js"></script>
     <script src="js/index.js"></script>
   </div>
